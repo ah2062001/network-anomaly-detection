@@ -1,78 +1,53 @@
-# Network Anomaly Detection & Telecom Fault Diagnosis
+# Network Anomaly Detection
 
-**Machine Learning | Network Security | Telecom Operations | Explainable AI**
+Exploring machine learning for network traffic analysis, DDoS detection, and eventually telecom fault diagnosis.
 
-An experimental machine learning project investigating network anomaly detection, DDoS traffic classification, feature importance, model robustness, and context-aware telecom fault diagnosis.
+I started this project to investigate how well conventional ML models identify abnormal network traffic, and more importantly, whether their performance holds up when the evaluation conditions change.
 
-The project combines network security research with practical network operations concepts, including traffic monitoring, fault detection, and root-cause investigation.
+My background is in telecom network operations, where I've worked with network monitoring, traffic anomalies, outages, and incident investigation. I'm interested in connecting that operational experience with machine learning.
 
-**Project status:** Active development — security classification experiments completed; hybrid telecom diagnosis under development.
+## What I've done so far
 
----
+The initial experiments use the Friday DDoS traffic from [CIC-IDS2017](https://www.unb.ca/cic/datasets/ids-2017.html).
 
-## 1. Project Overview
+The dataset contains 225,745 flows, including 128,027 labeled as DDoS.
 
-Modern networks generate large volumes of traffic and operational telemetry. Detecting anomalies is important, but distinguishing malicious activity from operational failures remains a challenging problem.
+I trained a Random Forest classifier using flow-level statistics such as packet lengths, inter-arrival times, TCP window sizes, and forward/backward traffic characteristics.
 
-This project investigates two related tasks:
+So far, I've tested:
 
-1. **Network security anomaly detection:** Identify potentially malicious traffic, initially focusing on DDoS classification.
-2. **Telecom fault diagnosis:** Investigate network degradation associated with congestion, packet loss, interface errors, routing instability, and link failures.
+- A basic Random Forest classifier.
+- Feature importance to identify which traffic characteristics the model relies on.
+- Feature ablation, removing the most important features and retraining.
+- A block-holdout evaluation instead of relying only on a random train/test split.
 
-The longer-term objective is to evaluate whether combining traffic-flow features with operational network telemetry improves anomaly interpretation and fault diagnosis.
+## Results
 
-## 2. Research Objectives
+| Experiment | Accuracy |
+|---|---:|
+| Random train/test split | 99.985% |
+| Remove top 5 features | 99.985% |
+| Remove top 15 features | 99.985% |
+| Block holdout | 99.740% |
 
-- Build reproducible machine learning baselines for network traffic classification.
-- Evaluate the importance and redundancy of network-flow features.
-- Investigate how evaluation strategies influence reported performance.
-- Assess model generalization using independent network datasets.
-- Develop a separate telecom telemetry classification pipeline.
-- Explore context-aware diagnosis using both security and operational indicators.
+The initial accuracy was surprisingly high.
 
-## 3. Dataset
+Even after removing the 15 highest-ranked features, performance barely changed. That could indicate considerable redundancy among the flow features, or simply that this particular dataset is relatively easy for the model to separate.
 
-### CIC-IDS2017
+I then tried a different evaluation: training on the first 175,000 rows and testing on the remaining 50,745.
 
-The initial security experiments use the Friday DDoS subset of CIC-IDS2017.
+The model made 132 incorrect predictions:
 
-**Dataset:** [Canadian Institute for Cybersecurity — CIC-IDS2017](https://www.unb.ca/cic/datasets/ids-2017.html)
+- 88 benign flows classified as DDoS.
+- 44 DDoS flows classified as benign.
 
-The CSV contains:
+The block-holdout result is still strong, but it raises questions about how much the evaluation setup influences performance. The experiments also use different training-set sizes, so the results aren't directly controlled comparisons.
 
-| Property | Value |
-|---|---|
-| Total observations | 225,745 |
-| Benign flows | 97,718 |
-| DDoS flows | 128,027 |
-| Initial model features | 78 |
-| Classification task | Binary: BENIGN / DDoS |
+**These numbers don't establish that the model would perform equally well on another network.** All completed experiments use the same CSV, and the file doesn't include timestamps that would let me verify chronological order.
 
-The original dataset is not included in this repository. Users must obtain it separately and place the relevant CSV at `data/raw/ddos.csv`.
+## Feature importance
 
-## 4. Methodology
-
-### Baseline classification
-
-The initial model uses a Random Forest classifier implemented with scikit-learn.
-
-The pipeline includes:
-
-- Numerical feature selection
-- Infinite-value handling
-- Missing-value imputation
-- Stratified train/test splitting
-- Random Forest classification
-- Classification metrics and confusion matrix
-- ROC-AUC evaluation
-
-The initial baseline uses the first 100,000 observations and a stratified random 80/20 train/test split.
-
-### Feature importance
-
-Random Forest impurity-based feature importance is used to investigate which flow characteristics contribute to the classifier's predictions.
-
-Prominent features include:
+Some of the highest-ranked features were:
 
 - `Init_Win_bytes_forward`
 - `Bwd Packet Length Max`
@@ -80,236 +55,43 @@ Prominent features include:
 - `Subflow Fwd Bytes`
 - `Avg Fwd Segment Size`
 
-Feature importance is not interpreted as proof of causality. Correlated features can also affect impurity-based importance rankings.
+The feature importance analysis uses Random Forest's built-in impurity-based importance, which can be affected by correlated variables.
 
-### Feature ablation
+![Feature importance](reports/feature_importance.png)
 
-An ablation study removes groups of high-importance features and retrains the classifier.
+## Running the experiments
 
-The objective is to investigate whether performance depends strongly on a small subset of features.
-
-### Block-holdout evaluation
-
-A separate experiment trains on the first 175,000 observations and evaluates on the remaining 50,745 observations.
-
-This tests performance on a different contiguous section of the same CSV.
-
-**Important:** The CSV does not contain an explicit timestamp column. Therefore, this is a block-holdout experiment, not a verified chronological evaluation.
-
-## 5. Experimental Results
-
-### Experiment 1 — Random Forest baseline
-
-| Metric | Result |
-|---|---:|
-| Test observations | 20,000 |
-| Accuracy | 99.985% |
-| ROC-AUC | 0.99999998 |
-| False positives | 0 |
-| False negatives | 3 |
-
-These results are from a random split of the first 100,000 observations, not an independent external dataset.
-
-### Experiment 2 — Feature ablation
-
-| Experiment | Features | Accuracy | F1-score |
-|---|---:|---:|---:|
-| All features | 78 | 99.985% | 0.999877 |
-| Remove top 1 | 77 | 99.980% | 0.999837 |
-| Remove top 5 | 73 | 99.985% | 0.999877 |
-| Remove top 15 | 63 | 99.985% | 0.999877 |
-
-Removing the 15 highest-ranked features did not materially reduce performance under this evaluation setup.
-
-This is consistent with substantial feature redundancy or relatively easy separation within the evaluated dataset. It does not establish generalization to unseen network environments.
-
-### Experiment 3 — Block-holdout evaluation
-
-| Metric | Result |
-|---|---:|
-| Training observations | 175,000 |
-| Test observations | 50,745 |
-| Accuracy | 99.740% |
-| ROC-AUC | 0.99933 |
-| False positives | 88 |
-| False negatives | 44 |
-| DDoS precision | 99.38% |
-| DDoS recall | 99.69% |
-
-**Confusion matrix**
-
-| Actual / Predicted | BENIGN | DDoS |
-|---|---:|---:|
-| BENIGN | 36,609 | 88 |
-| DDoS | 44 | 14,004 |
-
-Performance remains high, although the block-holdout experiment produces more errors than the initial random-split baseline.
-
-The experiments use different training and testing populations, so the difference cannot be attributed solely to the splitting strategy.
-
-## 6. Current Limitations
-
-Several limitations must be considered when interpreting these results:
-
-1. **Single-capture evaluation:** The completed security experiments use observations from the same CSV.
-2. **Potential dataset-specific patterns:** Very high classification accuracy may reflect characteristics of the capture rather than broad network generalization.
-3. **Feature correlation:** Flow-level variables may contain redundant information.
-4. **No verified chronological split:** Row order is not confirmed to represent chronological order.
-5. **No independent external validation yet:** Generalization to different networks and attack scenarios remains untested.
-
-These limitations motivate the next research phase.
-
-## 7. Hybrid Telecom Fault Diagnosis — Work in Progress
-
-The project is being extended to investigate operational network anomalies.
-
-The planned telemetry features include:
-
-| Feature | Operational relevance |
-|---|---|
-| Link utilization | Potential congestion |
-| Latency | Network delay and degradation |
-| Packet loss | Connectivity and service quality |
-| Interface errors | Potential physical or link-layer problems |
-| Route changes | Routing instability |
-
-An initial synthetic telemetry generator is planned to validate the software pipeline.
-
-The operational scenarios are:
-
-- Normal operation
-- Congestion
-- Link degradation
-- Routing instability
-- Link failure
-
-**Synthetic telemetry is intended for development and testing only.** It will not be treated as real-world validation.
-
-Future experiments will use measured network telemetry and controlled fault scenarios.
-
-## 8. Planned Evaluation
-
-The next research stages include:
-
-- Independent DDoS evaluation using compatible features from CIC-DDoS2019.
-- Grouped evaluation across separate network captures or experimental runs.
-- Telecom fault classification using measured telemetry.
-- Comparison of flow-only, telemetry-only, and hybrid models.
-- Evaluation of false-positive rates, per-class recall, macro F1-score, and detection delay.
-- Investigation of interpretable evidence for incident diagnosis.
-
-The final hybrid evaluation will require synchronized observations from the same network environment.
-
-## 9. Repository Structure
-
-```text
-network-anomaly-detection/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── src/
-│   ├── train.py
-│   ├── feature_importance.py
-│   ├── ablation.py
-│   ├── block_holdout.py
-│   └── telecom/
-│       ├── generate.py
-│       └── train.py
-├── reports/
-│   ├── feature_importance.csv
-│   ├── feature_importance.png
-│   └── ablation_results.csv
-├── data/
-│   ├── raw/
-│   └── simulated/
-└── models/
-```
-
-Some files and directories belong to ongoing development and may not yet be available in the public repository.
-
-## 10. Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/ah2062001/network-anomaly-detection.git
-cd network-anomaly-detection
-```
-
-Create and activate a Python virtual environment:
+Install the dependencies:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Install dependencies:
+Download the Friday DDoS CSV from CIC-IDS2017 and save it as `data/raw/ddos.csv`.
 
-```bash
-python -m pip install -r requirements.txt
-```
-
-Place the CIC-IDS2017 Friday DDoS CSV at:
-
-```text
-data/raw/ddos.csv
-```
-
-Run the baseline experiment:
+Then run:
 
 ```bash
 python src/train.py
-```
-
-Run feature importance analysis after training:
-
-```bash
 python src/feature_importance.py
-```
-
-Run the ablation study:
-
-```bash
 python src/ablation.py
-```
-
-Run the block-holdout experiment:
-
-```bash
 python src/block_holdout.py
 ```
 
-For the telecom module, once available:
+## What's next?
 
-```bash
-python src/telecom/generate.py
-python src/telecom/train.py
-```
+The main question I'm working on is whether these models learn useful network behavior or just patterns specific to the training capture.
 
-## 11. Research Direction
+My next steps are to test against independent DDoS traffic, compare results across different evaluation strategies, and investigate whether operational telemetry such as latency, packet loss, link utilization, and interface errors can help distinguish security incidents from ordinary network faults.
 
-**Working research theme:**
+I'm also experimenting with a separate telecom fault-classification pipeline. Its initial data is synthetic and is only intended for software development, not real-world validation.
 
-*Context-Aware Network Anomaly Detection and Fault Diagnosis Using Flow-Level and Operational Telemetry*
+The longer-term goal is to investigate context-aware anomaly detection that combines network security indicators with operational network measurements.
 
-The central hypothesis is that combining network-flow indicators with operational telemetry may improve fault diagnosis and reduce false alarms compared with using either source independently.
+## About
 
-This hypothesis remains to be experimentally tested.
+I'm a telecommunications engineer currently pursuing research in computer networks, with previous experience in NOC operations and network incident management.
 
-## 12. Technologies
-
-Python · pandas · NumPy · scikit-learn · Matplotlib · Random Forest · Network Traffic Analysis · Machine Learning · Telecom Fault Management
-
-## 13. Author
-
-**Ameer Hamza Hassan**
-
-Electrical / Telecommunications Engineering background, with professional experience in telecom network operations, monitoring, and incident investigation.
-
-Current research interests include computer networks, network security, intelligent fault management, and machine learning for network operations.
-
-GitHub: [ah2062001](https://github.com/ah2062001)
-
----
-
-*This repository is an evolving research and engineering project. Experimental findings are preliminary and should not be interpreted as evidence of deployment-ready detection performance.*
+I'm using this project to explore practical applications of machine learning in network security and fault investigation.
