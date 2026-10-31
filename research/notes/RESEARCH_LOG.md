@@ -101,3 +101,100 @@
 **Interpretation:**  
 **Limitations / alternative explanations:**  
 **Next decision:**  
+
+
+### Experiment: Matched-Feature Internal Baseline and External Validation
+
+**Date:** 30 October 2026
+
+**Objective:** Determine whether the large external performance degradation persists when internal and external evaluations use the same feature set and model configuration.
+
+**Datasets:**
+- Training/internal evaluation: CIC-IDS2017 Friday DDoS subset, 225,745 flows.
+- External evaluation: redistributed CIC-DDoS2019 CSV, 431,371 flows.
+
+**Method:**
+- Random Forest, 100 trees, balanced class weights, random state 42.
+- 57 common usable numeric features selected using CIC-IDS2017.
+- Median imputation.
+- Internal evaluation: stratified 80/20 random split.
+- External evaluation: separately fitted model trained on all CIC-IDS2017 flows and evaluated on CIC-DDoS2019 without retraining on external labels.
+
+**Results:**
+
+| Metric | Internal | External |
+|---|---:|---:|
+| Accuracy | 99.9646% | 25.3000% |
+| Attack precision | 99.9727% | 98.8507% |
+| Attack recall | 99.9649% | 3.4296% |
+| Attack F1 | 99.9688% | 6.6292% |
+
+**Internal confusion matrix:** TN = 19,537; FP = 7; FN = 9; TP = 25,596.
+
+**External confusion matrix:** TN = 97,698; FP = 133; FN = 322,101; TP = 11,439.
+
+**Attack-family findings:**
+- SYN: 11,439 of 49,373 detected (23.17%).
+- All other attack categories combined: 0 of 284,167 detected.
+
+**Backward-traffic findings:**
+- At least one backward packet: 5.03% attack detection.
+- Zero backward packets: 3.20% attack detection.
+
+**Interpretation:** The failure persists with a matched feature set. The external model detects very few attacks and recognizes only a subset of SYN traffic. This is consistent with poor cross-dataset transfer, but the cause remains unresolved.
+
+**Limitations:** Different fitted models and training sizes; potential dataset provenance and feature extraction differences; internal random split may overestimate generalization; no independent replication or statistical uncertainty analysis yet.
+
+**Next actions:**
+1. Verify CIC-DDoS2019 CSV provenance and feature definitions.
+2. Check feature distributions and prediction scores.
+3. Compare with existing cross-dataset DDoS research.
+4. Evaluate additional baselines and controlled feature subsets.
+5. Preserve exact experiment configuration and results.
+---
+
+## Experiment 03 — Operating-Point Feasibility and Score-Tie Analysis
+
+**Objective:** Evaluate external attack recall under constrained false-positive rates.
+
+**Method:** Analyze saved prediction scores from Experiment 01 without retraining. Compare strict and inclusive thresholds and calculate target-label-informed ROC operating points.
+
+### Results
+
+| Metric | Result |
+|---|---:|
+| External ROC-AUC | 0.90433 |
+| Recall at score > 0.01 | 58.114% |
+| FPR at score > 0.01 | 10.652% |
+| Recall at score >= 0.01 | 96.138% |
+| FPR at score >= 0.01 | 14.480% |
+| Recall at score >= 0.50 | 2.830% |
+| FPR at score >= 0.50 | 0.133% |
+| External attacks with score exactly 0.01 | 38.02% |
+| External benign flows with score exactly 0.01 | 3.83% |
+
+### Target Oracle Operating Points
+
+| Maximum FPR | Achieved FPR | Attack Recall |
+|---|---:|---:|
+| 1% | 0.595% | 7.023% |
+| 5% | 4.201% | 18.555% |
+| 10% | 8.872% | 53.711% |
+
+### Interpretation
+
+The model retains substantial aggregate ranking discrimination (ROC-AUC = 0.90433), but detection performance at low external false-positive rates remains inadequate.
+
+Large concentrations of prediction scores at 0.01 produce abrupt changes in attack recall and false-positive rates when the threshold comparison changes from > to >=.
+
+### Limitations
+
+- Oracle operating points were selected using target labels and are not deployable thresholds.
+- External dataset provenance and feature equivalence remain unverified.
+- These results do not establish the causal mechanism behind score concentration.
+- The external dataset has a high attack prevalence, so its observed precision should not be generalized to operational traffic.
+
+### Next Experiment
+
+Experiment 04: Semantic feature compatibility and failure-attribution audit.
+
