@@ -1,0 +1,4 @@
+arm,test_projected_vector_collision_rows,test_projected_vector_collision_fraction,calibration_projected_vector_collision_with_train_rows,novel_test_rows,novel_attack,novel_benign
+full_57,0,0.0,0,100000,65641,34359
+without_template_three,0,0.0,0,100000,65641,34359
+without_packet_size_count_family,27,0.00027,1,99973,65618,34355

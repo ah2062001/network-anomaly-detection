@@ -1,0 +1,6 @@
+dataset,definition,group,total,attack,benign
+source_2017,tcp_window_signature_NOT_protocol,Window != -1 (not protocol),192820,128027,64793
+source_2017,tcp_window_signature_NOT_protocol,Window = -1 (not protocol),32925,0,32925
+target_2019,explicit_protocol,Other/unknown protocol,1752,46,1706
+target_2019,explicit_protocol,TCP (explicit),116951,56828,60123
+target_2019,explicit_protocol,UDP (explicit),312668,276666,36002

@@ -1,0 +1,2 @@
+roc_auc,average_precision,threshold,precision,attack_recall,benign_fpr,tp,fp,tn,fn,attack_prevalence,calibration_fpr,recall_at_0_5,fpr_at_0_5,group_equal_weight_auc,unique_test_vector_groups,dataset,train_rows_used,cal_rows_used,test_rows_used
+0.9999999747268631,0.9999999867670588,0.0,0.9993605651386204,1.0,0.001222387147472278,65641,42,34317,0,0.65641,0.0010082097076191847,1.0,2.9104455892197096e-05,0.9999999933994967,56404,2018,120000,20000,100000

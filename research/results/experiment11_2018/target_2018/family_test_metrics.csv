@@ -1,0 +1,4 @@
+dataset,family,test_rows,attack_rows,detected_attack,attack_recall
+2018,Benign,34359,0,0,
+2018,DDOS attack-LOIC-UDP,182,182,182,1.0
+2018,DDOS attack-HOIC,65459,65459,65459,1.0

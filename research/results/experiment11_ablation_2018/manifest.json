@@ -1,0 +1,58 @@
+{
+  "file_sha256": "a5f4a1c2689e0aa6566c03a58466de9c407c0be0cbd3cc69306544026611be04",
+  "original_run_metadata_path": "research/results/experiment11_2018/target_2018/run_metadata.json",
+  "original_metrics_path": "research/results/experiment11_2018/target_2018/metrics.csv",
+  "all_splits_unchanged": true,
+  "reference_check": "PASS",
+  "exclusion_groups": {
+    "without_template_three": [
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Mean",
+      "Total Fwd Packets"
+    ],
+    "without_packet_size_count_family": [
+      "Avg Bwd Segment Size",
+      "Avg Fwd Segment Size",
+      "Bwd Header Length",
+      "Bwd Packet Length Max",
+      "Bwd Packet Length Mean",
+      "Bwd Packet Length Min",
+      "Bwd Packet Length Std",
+      "Bwd Packets/s",
+      "Down/Up Ratio",
+      "Flow Bytes/s",
+      "Flow Packets/s",
+      "Fwd Header Length",
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Mean",
+      "Fwd Packet Length Min",
+      "Fwd Packet Length Std",
+      "Fwd Packets/s",
+      "Packet Length Mean",
+      "Packet Length Std",
+      "Packet Length Variance",
+      "Subflow Bwd Bytes",
+      "Subflow Bwd Packets",
+      "Subflow Fwd Bytes",
+      "Subflow Fwd Packets",
+      "Total Backward Packets",
+      "Total Fwd Packets"
+    ]
+  },
+  "model": {
+    "n_estimators": 100,
+    "class_weight": "balanced",
+    "min_samples_leaf": 2,
+    "max_leaf_nodes": 2048,
+    "random_state": 42,
+    "n_jobs": 2
+  },
+  "study_type": "post-hoc exploratory feature ablation",
+  "cautions": [
+    "Ablation chosen after examining target labels; not a confirmatory test",
+    "Exact reduced-feature group collisions are audited, not silently ignored",
+    "Calibrated FPR uses the same calibration rows and rule for each arm",
+    "No host/time/connection independence established",
+    "High/low discrimination does not identify label/extractor validity"
+  ]
+}

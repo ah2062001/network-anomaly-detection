@@ -1,0 +1,43 @@
+{
+  "status": "20_SEEDS_COMPLETE",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "n_reference_checks": 12,
+  "data_sha256": {
+    "2017": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+    "2018": "a5f4a1c2689e0aa6566c03a58466de9c407c0be0cbd3cc69306544026611be04",
+    "2019": "97af3b16e45f5309a6492cc16d947a74fdc135267f03756b8cea2eb13f4b2379"
+  },
+  "source_partition_method": "GroupShuffleSplit on source 37-feature hash, holdout seed; calibration seed+1000",
+  "threshold": "strict score > source benign calibration 99th percentile",
+  "feature_counts": {
+    "A": 57,
+    "B": 37
+  },
+  "target_mode": "memmap",
+  "python": "3.9.6 (default, Nov 11 2024, 03:15:38) \n[Clang 16.0.0 (clang-1600.0.26.6)]",
+  "sklearn": "1.6.1",
+  "pandas": "2.3.3",
+  "numpy": "2.0.2",
+  "platform": "macOS-15.2-arm64-arm-64bit"
+}
