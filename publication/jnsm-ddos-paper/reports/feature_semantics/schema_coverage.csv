@@ -1,0 +1,92 @@
+feature,in_2017,in_2019
+ACK Flag Count,True,True
+Active Max,True,True
+Active Mean,True,True
+Active Min,True,True
+Active Std,True,True
+Average Packet Size,True,False
+Avg Bwd Segment Size,True,True
+Avg Fwd Segment Size,True,True
+Avg Packet Size,False,True
+Bwd Avg Bulk Rate,True,True
+Bwd Avg Bytes/Bulk,True,True
+Bwd Avg Packets/Bulk,True,True
+Bwd Header Length,True,True
+Bwd IAT Max,True,True
+Bwd IAT Mean,True,True
+Bwd IAT Min,True,True
+Bwd IAT Std,True,True
+Bwd IAT Total,True,True
+Bwd PSH Flags,True,True
+Bwd Packet Length Max,True,True
+Bwd Packet Length Mean,True,True
+Bwd Packet Length Min,True,True
+Bwd Packet Length Std,True,True
+Bwd Packets Length Total,False,True
+Bwd Packets/s,True,True
+Bwd URG Flags,True,True
+CWE Flag Count,True,True
+Class,False,True
+Destination Port,True,False
+Down/Up Ratio,True,True
+ECE Flag Count,True,True
+FIN Flag Count,True,True
+Flow Bytes/s,True,True
+Flow Duration,True,True
+Flow IAT Max,True,True
+Flow IAT Mean,True,True
+Flow IAT Min,True,True
+Flow IAT Std,True,True
+Flow Packets/s,True,True
+Fwd Act Data Packets,False,True
+Fwd Avg Bulk Rate,True,True
+Fwd Avg Bytes/Bulk,True,True
+Fwd Avg Packets/Bulk,True,True
+Fwd Header Length,True,True
+Fwd Header Length.1,True,False
+Fwd IAT Max,True,True
+Fwd IAT Mean,True,True
+Fwd IAT Min,True,True
+Fwd IAT Std,True,True
+Fwd IAT Total,True,True
+Fwd PSH Flags,True,True
+Fwd Packet Length Max,True,True
+Fwd Packet Length Mean,True,True
+Fwd Packet Length Min,True,True
+Fwd Packet Length Std,True,True
+Fwd Packets Length Total,False,True
+Fwd Packets/s,True,True
+Fwd Seg Size Min,False,True
+Fwd URG Flags,True,True
+Idle Max,True,True
+Idle Mean,True,True
+Idle Min,True,True
+Idle Std,True,True
+Init Bwd Win Bytes,False,True
+Init Fwd Win Bytes,False,True
+Init_Win_bytes_backward,True,False
+Init_Win_bytes_forward,True,False
+Label,True,True
+Max Packet Length,True,False
+Min Packet Length,True,False
+PSH Flag Count,True,True
+Packet Length Max,False,True
+Packet Length Mean,True,True
+Packet Length Min,False,True
+Packet Length Std,True,True
+Packet Length Variance,True,True
+Protocol,False,True
+RST Flag Count,True,True
+SYN Flag Count,True,True
+Subflow Bwd Bytes,True,True
+Subflow Bwd Packets,True,True
+Subflow Fwd Bytes,True,True
+Subflow Fwd Packets,True,True
+Total Backward Packets,True,True
+Total Fwd Packets,True,True
+Total Length of Bwd Packets,True,False
+Total Length of Fwd Packets,True,False
+URG Flag Count,True,True
+Unnamed: 0,False,True
+act_data_pkt_fwd,True,False
+min_seg_size_forward,True,False

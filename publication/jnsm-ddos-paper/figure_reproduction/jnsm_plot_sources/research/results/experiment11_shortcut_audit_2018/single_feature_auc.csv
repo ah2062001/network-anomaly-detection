@@ -1,0 +1,58 @@
+feature,input_column,direction_selected_on_train,train_single_feature_auc,test_single_feature_auc_fixed_direction,train_missing_fraction,test_missing_fraction,train_unique_values,test_unique_values,train_median
+Fwd Packet Length Max,Fwd Pkt Len Max,lower_is_attack,0.9981797448320027,0.998319497339439,0.0,0.0,63,63,32.0
+Avg Fwd Segment Size,Fwd Seg Size Avg,lower_is_attack,0.9981650431834793,0.9983227125701928,0.0,0.0,64,63,32.0
+Fwd Packet Length Mean,Fwd Pkt Len Mean,lower_is_attack,0.9981650431834793,0.9983227125701928,0.0,0.0,64,63,32.0
+Total Fwd Packets,Tot Fwd Pkts,lower_is_attack,0.9966095919023916,0.9965609949055746,0.0,0.0,228,201,3.0
+Subflow Fwd Packets,Subflow Fwd Pkts,lower_is_attack,0.9966095919023916,0.9965609949055746,0.0,0.0,228,201,3.0
+Subflow Fwd Bytes,Subflow Fwd Byts,lower_is_attack,0.9964899227795819,0.9963741330898888,0.0,0.0,290,258,247.0
+Fwd Header Length,Fwd Header Len,lower_is_attack,0.996157663029792,0.995900638872935,0.0,0.0,235,209,72.0
+Fwd Packet Length Std,Fwd Pkt Len Std,lower_is_attack,0.9959721136604405,0.9962710025072509,0.0,0.0,63,61,0.0
+Bwd IAT Min,Bwd IAT Min,lower_is_attack,0.9957563516400351,0.9961046525025711,0.0,0.0,11825,10537,0.0
+Fwd IAT Min,Fwd IAT Min,higher_is_attack,0.9913749287280613,0.9915826540261059,0.0,0.0,17210,6919,494.0
+Flow Bytes/s,Flow Byts/s,lower_is_attack,0.9320840012835458,0.9318782910421283,0.0,0.0,47869,40982,4.093420028686523
+Bwd Packets/s,Bwd Pkts/s,lower_is_attack,0.8977959817884188,0.8970548011427355,0.0,0.0,21105,18954,0.0
+Packet Length Mean,Pkt Len Mean,lower_is_attack,0.8808963807916029,0.8810382662611347,0.0,0.0,65,66,32.0
+ACK Flag Count,ACK Flag Cnt,higher_is_attack,0.8797716321932092,0.8795769936539316,0.0,0.0,2,2,0.0
+Packet Length Std,Pkt Len Std,lower_is_attack,0.8787068838283232,0.8790118838719627,0.0,0.0,63,64,0.0
+Packet Length Variance,Pkt Len Var,lower_is_attack,0.8787068838283232,0.8790118838719627,0.0,0.0,63,64,0.0
+PSH Flag Count,PSH Flag Cnt,lower_is_attack,0.8783048177186479,0.8783439212901686,0.0,0.0,2,2,0.0
+RST Flag Count,RST Flag Cnt,lower_is_attack,0.8778322279265874,0.8779364589076778,0.0,0.0,2,2,0.0
+ECE Flag Count,ECE Flag Cnt,lower_is_attack,0.8778322279265874,0.8779364589076778,0.0,0.0,2,2,0.0
+Bwd IAT Mean,Bwd IAT Mean,lower_is_attack,0.8613464182843771,0.8619114122995682,0.0,0.0,21636,19394,0.0
+Fwd IAT Mean,Fwd IAT Mean,higher_is_attack,0.8474286119570837,0.8478223088249567,0.0,0.0,32069,22930,2956.125
+Flow IAT Mean,Flow IAT Mean,higher_is_attack,0.8462251850383944,0.8471977967514095,0.0,0.0,33894,23184,2079.0
+Fwd IAT Std,Fwd IAT Std,lower_is_attack,0.8347296525967951,0.8355255354346964,0.0,0.0,50769,43136,52.6794548034668
+Flow IAT Std,Flow IAT Std,lower_is_attack,0.8312126793231916,0.8313737338785203,0.0,0.0,59566,49767,147.4580078125
+Flow IAT Min,Flow IAT Min,higher_is_attack,0.8256184219641501,0.8256855738901953,0.0,0.0,16882,6451,338.0
+Bwd IAT Max,Bwd IAT Max,lower_is_attack,0.8209642293612349,0.8216575708003688,0.0,0.0,17912,16404,0.0
+Bwd IAT Total,Bwd IAT Tot,lower_is_attack,0.8138278212745766,0.8143866872582077,0.0,0.0,18948,17262,0.0
+Fwd Packets/s,Fwd Pkts/s,lower_is_attack,0.8116263617543531,0.8122928608426194,0.0,0.0,36787,26015,560.6952514648438
+Flow Packets/s,Flow Pkts/s,lower_is_attack,0.8114944225847146,0.8118319001063706,0.0,0.0,34213,23250,763.5669555664062
+Bwd Header Length,Bwd Header Len,lower_is_attack,0.7603334044309045,0.7602212951612872,0.0,0.0,14,14,0.0
+Subflow Bwd Packets,Subflow Bwd Pkts,lower_is_attack,0.7603190087332778,0.7602039874963256,0.0,0.0,11,8,0.0
+Total Backward Packets,Tot Bwd Pkts,lower_is_attack,0.7603190087332778,0.7602039874963256,0.0,0.0,11,8,0.0
+Subflow Bwd Bytes,Subflow Bwd Byts,lower_is_attack,0.7600077772594834,0.7599883905672585,0.0,0.0,54,56,0.0
+Bwd Packet Length Max,Bwd Pkt Len Max,lower_is_attack,0.7600020189804327,0.7599883905672585,0.0,0.0,52,54,0.0
+Avg Bwd Segment Size,Bwd Seg Size Avg,lower_is_attack,0.7599732275851795,0.7599745444352891,0.0,0.0,56,58,0.0
+Bwd Packet Length Mean,Bwd Pkt Len Mean,lower_is_attack,0.7599732275851795,0.7599745444352891,0.0,0.0,56,58,0.0
+Bwd Packet Length Std,Bwd Pkt Len Std,lower_is_attack,0.7599732275851795,0.7599274262184584,0.0,0.0,56,55,0.0
+Flow IAT Max,Flow IAT Max,higher_is_attack,0.7044728081363496,0.7063920648284128,0.0,0.0,25163,19806,4492.0
+Fwd IAT Max,Fwd IAT Max,higher_is_attack,0.6667643648830772,0.6678813441771886,0.0,0.0,25020,19645,4461.0
+Flow Duration,Flow Duration,higher_is_attack,0.6587460391778507,0.6614067888050604,0.0,0.0,26409,20760,4699.0
+Fwd IAT Total,Fwd IAT Tot,higher_is_attack,0.6381234312944889,0.6398264708016108,0.0,0.0,24973,19684,4552.5
+Bwd IAT Std,Bwd IAT Std,higher_is_attack,0.6186040963495935,0.6186841034516419,0.0,0.0,18623,15541,0.0
+Down/Up Ratio,Down/Up Ratio,higher_is_attack,0.6184568807192589,0.6185675448522662,0.0,0.0,3,3,0.0
+Idle Max,Idle Max,lower_is_attack,0.5027870680044593,0.5026048488023517,0.0,0.0,53,46,0.0
+Idle Mean,Idle Mean,lower_is_attack,0.5027870680044593,0.5026048488023516,0.0,0.0,99,95,0.0
+Idle Min,Idle Min,lower_is_attack,0.5027870680044593,0.5026048488023516,0.0,0.0,215,166,0.0
+Idle Std,Idle Std,lower_is_attack,0.5027385972565557,0.5025466398905672,0.0,0.0,193,151,0.0
+Active Max,Active Max,lower_is_attack,0.5024720081430856,0.5022410431036992,0.0,0.0,194,147,0.0
+Active Mean,Active Mean,lower_is_attack,0.5024720081430856,0.5022410431036992,0.0,0.0,203,153,0.0
+Active Min,Active Min,lower_is_attack,0.5024720081430856,0.5022410431036992,0.0,0.0,203,153,0.0
+Active Std,Active Std,lower_is_attack,0.5016722408026756,0.5014406705666637,0.0,0.0,139,100,0.0
+Fwd Packet Length Min,Fwd Pkt Len Min,lower_is_attack,0.5013707606672713,0.5011177439454155,0.0,0.0,3,6,0.0
+URG Flag Count,URG Flag Cnt,lower_is_attack,0.5000363530609278,0.5000582089117844,0.0,0.0,2,2,0.0
+SYN Flag Count,SYN Flag Cnt,lower_is_attack,0.5000121176869758,0.5000436566838383,0.0,0.0,2,2,0.0
+Fwd PSH Flags,Fwd PSH Flags,lower_is_attack,0.5000121176869758,0.5000436566838383,0.0,0.0,2,2,0.0
+FIN Flag Count,FIN Flag Cnt,higher_is_attack,0.5,0.5,0.0,0.0,1,1,0.0
+Bwd Packet Length Min,Bwd Pkt Len Min,higher_is_attack,0.5,0.4999563433161617,0.0,0.0,1,4,0.0

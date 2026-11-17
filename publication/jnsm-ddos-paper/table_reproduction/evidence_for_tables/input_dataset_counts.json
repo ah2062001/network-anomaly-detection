@@ -1,0 +1,20 @@
+{
+  "CIC-IDS2017": {
+    "rows": 225745,
+    "benign": 97718,
+    "attack": 128027,
+    "sha256": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee"
+  },
+  "CIC-DDoS2019 redistributed": {
+    "rows": 431371,
+    "benign": 97831,
+    "attack": 333540,
+    "sha256": "97af3b16e45f5309a6492cc16d947a74fdc135267f03756b8cea2eb13f4b2379"
+  },
+  "CSE-CIC-IDS2018 Wednesday-21": {
+    "rows": 1048575,
+    "benign": 360833,
+    "attack": 687742,
+    "sha256": "a5f4a1c2689e0aa6566c03a58466de9c407c0be0cbd3cc69306544026611be04"
+  }
+}

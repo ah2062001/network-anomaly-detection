@@ -1,0 +1,42 @@
+# Do not publish raw network traces or large local outputs.
+data/raw/**
+!data/raw/.gitkeep
+*.pcap
+*.pcapng
+*.parquet
+*.feather
+*.joblib
+*.pkl
+*.npz
+*.npy
+*.dat
+*.mmap
+*_local_memmap_cache/
+**/_local_memmap_cache/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+.ipynb_checkpoints/
+*.aux
+*.log
+*.out
+*.toc
+# Do not accidentally publish local configuration or secrets.
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+JNSM_evidence_from_Mac.zip
+
+# Locally generated tables and figure artifacts.
+table_reproduction/regenerated_tables/
+figure_reproduction/figures/
+figure_reproduction/*.aux
+figure_reproduction/*.log
+
+figure_reproduction/GENERATED_FIGURES_README.md
+figure_reproduction/Overleaf_figure_snippets.tex
+figure_reproduction/Figure_Captions.md

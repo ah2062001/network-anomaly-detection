@@ -1,0 +1,6 @@
+# Versions observed in the author's 20-seed run manifest (macOS/Python 3.9.6).
+# This is NOT a full pip lockfile. Confirm scipy and all transitive versions
+# with `python -m pip freeze` on the original environment before release.
+numpy==2.0.2
+pandas==2.3.3
+scikit-learn==1.6.1

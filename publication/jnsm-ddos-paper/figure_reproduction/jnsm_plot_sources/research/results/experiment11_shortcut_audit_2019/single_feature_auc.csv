@@ -1,0 +1,58 @@
+feature,input_column,direction_selected_on_train,train_single_feature_auc,test_single_feature_auc_fixed_direction,train_missing_fraction,test_missing_fraction,train_unique_values,test_unique_values,train_median
+Fwd Packet Length Min,Fwd Packet Length Min,higher_is_attack,0.9158359544946698,0.9157314788873236,0.0,0.0,905,830,330.0
+Bwd Packets/s,Bwd Packets/s,lower_is_attack,0.8870037601987234,0.8920789787146763,0.0,0.0,23234,16987,0.0
+Fwd Packet Length Mean,Fwd Packet Length Mean,higher_is_attack,0.868485880529445,0.8713826581512111,0.0,0.0,4193,3381,428.0
+Avg Fwd Segment Size,Avg Fwd Segment Size,higher_is_attack,0.868485880529445,0.8713826581512111,0.0,0.0,4193,3381,428.0
+Bwd Header Length,Bwd Header Length,lower_is_attack,0.8476612033344562,0.8534871346365818,0.0,0.0,605,515,0.0
+Total Backward Packets,Total Backward Packets,lower_is_attack,0.8474321642465714,0.8530677723173854,0.0,0.0,266,238,0.0
+Subflow Bwd Packets,Subflow Bwd Packets,lower_is_attack,0.8474321642465714,0.8530677723173854,0.0,0.0,266,238,0.0
+Packet Length Mean,Packet Length Mean,higher_is_attack,0.8441431305639422,0.8456474454185221,0.0,0.0,5454,4359,429.9534912109375
+Subflow Fwd Bytes,Subflow Fwd Bytes,higher_is_attack,0.8418489603687077,0.8389148533569597,0.0,0.0,3298,2814,2064.0
+Bwd IAT Min,Bwd IAT Min,lower_is_attack,0.8389683336772769,0.8439928551523161,0.0,0.0,95,91,0.0
+Down/Up Ratio,Down/Up Ratio,lower_is_attack,0.8332830073251841,0.8321319339815836,0.0,0.0,15,13,0.0
+Bwd IAT Total,Bwd IAT Total,lower_is_attack,0.8266904318540114,0.8316362300808774,0.0,0.0,12412,8977,0.0
+Bwd IAT Max,Bwd IAT Max,lower_is_attack,0.8246758686947524,0.8296691377109866,0.0,0.0,12289,8896,0.0
+Bwd IAT Mean,Bwd IAT Mean,lower_is_attack,0.8219973521295336,0.827012283892642,0.0,0.0,12508,9019,0.0
+Total Fwd Packets,Total Fwd Packets,higher_is_attack,0.7886719255013953,0.7806582341853682,0.0,0.0,244,236,4.0
+Subflow Fwd Packets,Subflow Fwd Packets,higher_is_attack,0.7886719255013953,0.7806582341853682,0.0,0.0,244,236,4.0
+Bwd Packet Length Max,Bwd Packet Length Max,lower_is_attack,0.7879531354898249,0.7929953107314617,0.0,0.0,728,609,0.0
+Avg Bwd Segment Size,Avg Bwd Segment Size,lower_is_attack,0.7879191435531364,0.7929611935559958,0.0,0.0,3188,2461,0.0
+Bwd Packet Length Mean,Bwd Packet Length Mean,lower_is_attack,0.7879191435531364,0.7929611935559958,0.0,0.0,3188,2461,0.0
+Subflow Bwd Bytes,Subflow Bwd Bytes,lower_is_attack,0.7856169615072007,0.7909541407526912,0.0,0.0,2633,2082,0.0
+Flow IAT Min,Flow IAT Min,lower_is_attack,0.7851085575864748,0.7913279497104282,0.0,0.0,1346,938,1.0
+Fwd Packet Length Max,Fwd Packet Length Max,higher_is_attack,0.7714186720910168,0.7685273666013076,0.0,0.0,1646,1424,440.0
+Fwd IAT Mean,Fwd IAT Mean,higher_is_attack,0.7523114819948864,0.7449751469368734,0.0,0.0,68658,51884,250.1521759033203
+Fwd IAT Total,Fwd IAT Total,higher_is_attack,0.749681360260966,0.7411390089923334,0.0,0.0,52937,40689,9775.5
+Fwd IAT Max,Fwd IAT Max,higher_is_attack,0.7461423206342928,0.737672179962033,0.0,0.0,43402,33626,2653.0
+Fwd IAT Std,Fwd IAT Std,higher_is_attack,0.7410582194451393,0.7343284794470133,0.0,0.0,81006,59511,624.45849609375
+Packet Length Std,Packet Length Std,lower_is_attack,0.7177370323588224,0.7176457060619138,0.0,0.0,4736,3629,0.0
+Packet Length Variance,Packet Length Variance,lower_is_attack,0.7177370323588224,0.7176457060619138,0.0,0.0,4736,3629,0.0
+URG Flag Count,URG Flag Count,lower_is_attack,0.707140881716724,0.6972239757868972,0.0,0.0,2,2,0.0
+Fwd IAT Min,Fwd IAT Min,lower_is_attack,0.6943744638701863,0.707079247888093,0.0,0.0,351,265,1.0
+Bwd Packet Length Min,Bwd Packet Length Min,lower_is_attack,0.6938976126814798,0.695177793708331,0.0,0.0,205,198,0.0
+Flow Bytes/s,Flow Bytes/s,higher_is_attack,0.6597783426793575,0.6657375534155182,0.0,0.0,82928,62062,9861.603515625
+Bwd Packet Length Std,Bwd Packet Length Std,lower_is_attack,0.5926565956024181,0.5957033379551098,0.0,0.0,3210,2427,0.0
+Bwd IAT Std,Bwd IAT Std,lower_is_attack,0.5880807167309889,0.5926506206037849,0.0,0.0,12526,9039,0.0
+RST Flag Count,RST Flag Count,lower_is_attack,0.5618264153429823,0.5518346330727764,0.0,0.0,2,2,0.0
+Fwd PSH Flags,Fwd PSH Flags,lower_is_attack,0.5618264153429823,0.5518346330727764,0.0,0.0,2,2,0.0
+Fwd Packet Length Std,Fwd Packet Length Std,lower_is_attack,0.5384327305617155,0.534273447738762,0.0,0.0,3824,2916,0.0
+Fwd Header Length,Fwd Header Length,higher_is_attack,0.5339879621489206,0.5260764453996472,0.0,0.0,1871,1687,64.0
+Flow IAT Std,Flow IAT Std,higher_is_attack,0.5212135871299768,0.5142088474549193,0.0,0.0,89652,66089,12720.7587890625
+Flow Duration,Flow Duration,higher_is_attack,0.520571361338839,0.5105811961994324,0.0,0.0,59323,45518,41550.0
+ACK Flag Count,ACK Flag Count,lower_is_attack,0.5169614647608602,0.5224043654988381,0.0,0.0,2,2,0.0
+Fwd Packets/s,Fwd Packets/s,higher_is_attack,0.5161846695660837,0.5230393066636676,0.0,0.0,72774,55306,70.45230102539062
+Active Min,Active Min,lower_is_attack,0.5157377479338685,0.5168454159055854,0.0,0.0,3323,2389,0.0
+Flow Packets/s,Flow Packets/s,lower_is_attack,0.5137491952593602,0.5059690127657129,0.0,0.0,72905,55331,140.6741943359375
+Flow IAT Mean,Flow IAT Mean,higher_is_attack,0.513715117850824,0.5068195040884473,0.0,0.0,75796,57190,9104.5
+Active Mean,Active Mean,lower_is_attack,0.5132902487448889,0.5143361631995655,0.0,0.0,6332,4758,0.0
+Idle Std,Idle Std,higher_is_attack,0.5131098855781665,0.5117219365944068,0.0,0.0,13872,9941,0.0
+Active Max,Active Max,lower_is_attack,0.5130486792472606,0.5140737612657641,0.0,0.0,5429,3955,0.0
+Idle Min,Idle Min,lower_is_attack,0.5081497791682822,0.5095990089482407,0.0,0.0,16119,11534,0.0
+Idle Mean,Idle Mean,lower_is_attack,0.5049013868557386,0.5065778500628184,0.0,0.0,16205,11574,0.0
+Idle Max,Idle Max,lower_is_attack,0.5046582064210459,0.5063532782038771,0.0,0.0,16174,11557,0.0
+Active Std,Active Std,lower_is_attack,0.5029227370718871,0.5040964452812021,0.0,0.0,7835,5825,0.0
+SYN Flag Count,SYN Flag Count,lower_is_attack,0.5010231404565684,0.5014135469355029,0.0,0.0,2,2,0.0
+Flow IAT Max,Flow IAT Max,higher_is_attack,0.5008071590193165,0.4922936603810846,0.0,0.0,50060,38625,32513.0
+PSH Flag Count,PSH Flag Count,higher_is_attack,0.5,0.5,0.0,0.0,1,1,0.0
+FIN Flag Count,FIN Flag Count,higher_is_attack,0.5,0.5,0.0,0.0,1,1,0.0
+ECE Flag Count,ECE Flag Count,higher_is_attack,0.5,0.5,0.0,0.0,1,1,0.0

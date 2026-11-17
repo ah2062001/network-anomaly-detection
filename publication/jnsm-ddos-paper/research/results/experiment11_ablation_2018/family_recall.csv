@@ -1,0 +1,7 @@
+arm,family,test_attack_n,detected,recall
+full_57,DDOS attack-HOIC,65459,65459,1.0
+full_57,DDOS attack-LOIC-UDP,182,182,1.0
+without_template_three,DDOS attack-HOIC,65459,65459,1.0
+without_template_three,DDOS attack-LOIC-UDP,182,182,1.0
+without_packet_size_count_family,DDOS attack-HOIC,65459,65459,1.0
+without_packet_size_count_family,DDOS attack-LOIC-UDP,182,182,1.0

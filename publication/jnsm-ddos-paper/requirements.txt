@@ -1,0 +1,5 @@
+# Direct packages reported for the November 2026 macOS research environment.
+# This is not a complete, frozen dependency lock.
+numpy==2.0.2
+pandas==2.3.3
+scikit-learn==1.6.1
